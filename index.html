@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="display: flex; gap: 20px; align-items: flex-start;">
+
+    <!-- LEFT COLUMN: ABOUT ME -->
+    <div style="flex: 1;">
+        <h1>Welcome to My Portfolio</h1>
+        <p>Hello! I'm a Python developer passionate about building websites and data projects.</p>
+
+        <h2>About My Work</h2>
+        <p>I specialize in creating dynamic web applications and analyzing data with Python.</p>
+
+        <!-- Image -->
+        <!--<img src="{{ url_for('static', filename='images/myphoto.jpg') }}" 
+             alt="My Photo" 
+             style="width: 200px; border-radius: 10px; margin-top: 10px;">
+
+        <!-- Hyperlinks -->
+        <!--<p style="margin-top: 20px;">
+            Check out my projects on 
+            <a href="https://github.com/yourusername" target="_blank">GitHub</a> 
+            or visit my 
+            <a href="{{ url_for('about') }}">About Page</a>.
+     </p> -->
+	
+    </div>
+
+    <!-- RIGHT COLUMN: RESUME VIEWER -->
+    <div style="flex: 1; height: 80vh; border: 1px solid #ccc; border-radius: 10px; overflow: hidden;">
+        <iframe src="{{ url_for('static', filename='documents/harish_nandan_.pdf') }}" 
+                width="100%" 
+                height="100%" 
+                style="border: none;">
+        </iframe>
+    </div>
+
+</div>
+{% endblock %}
