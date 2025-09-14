@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="Certifications-container">
+    <h1>My Certifications</h1>
+    <ul class="flex-list">
+        <li>
+            <strong>Business Analysis</strong>
+            <br>
+            <!-- Downloadable image -->
+            <a href="{{ url_for('static', filename='certifications/business_analysis.jpg') }}" download>
+                <img src="{{ url_for('static', filename='certifications/business_analysis.jpg') }}" alt="View/Download Certificate" width="300">
+            </a>
+            <br>
+            <!-- Redirect to verification page -->
+            <a href="https://www.linkedin.com/learning/certificates/1e5d157866bed3db4a99d984dcd3cdf4a27e901b875f6e2a01c2b9efaba97bf2" target="_blank">
+                Click here to Verify Certification
+            </a>
+        </li>
+<li>
+            <strong>Data Analytics</strong>
+            <br>
+            <a href="{{ url_for('static', filename='certifications/Data_analytics.jpg') }}" download>
+                <img src="{{ url_for('static', filename='certifications/Data_analytics.jpg') }}" alt="Data Analytics Certificate" width="300">
+            </a>
+            <br>
+            <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_RZgrZGRNKwfq9D6Hw_1742221776231_completion_certificate.pdf" target="_blank">
+                Click here to Verify Certification
+            </a>
+        </li>
+<!--         <li>
+            <strong>Advanced Excel</strong>
+            <br>
+            <a href="{{ url_for('static', filename='certifications/advanced_excel.jpg') }}" download>
+                <img src="{{ url_for('static', filename='certifications/advanced_excel.jpg') }}" alt="Advanced Excel Certificate" width="300">
+            </a>
+            <br>
+            <a href="https://www.coursera.org/account/accomplishments/certificate/example" target="_blank">
+                Verify on Coursera
+            </a>
+        </li>
+
+        <li>
+            <strong>Power BI</strong>
+            <br>
+            <a href="{{ url_for('static', filename='certifications/powerbi.jpg') }}" download>
+                <img src="{{ url_for('static', filename='certifications/powerbi.jpg') }}" alt="Power BI Certificate" width="300">
+            </a>
+            <br>
+            <a href="https://www.credly.com/badges/example" target="_blank">
+                Verify on Credly
+            </a>
+        </li> -->
+
+        <!-- Repeat for other certifications -->
+    </ul>
+</div>
+{% endblock %}
