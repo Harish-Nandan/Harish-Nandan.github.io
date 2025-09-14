@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+<link rel="stylesheet" href="\static\css\style.css">
+    <style>
+        /* Flexbox navigation bar */
+<!--body { font-family: Calibri, sans-serif; margin: 0; padding: 0; background-color: #ffffff;}-->
+        nav {
+           
+            display: flex;
+            justify-content: space-around; /* options: flex-start (left), flex-end (right), Center */
+            gap: 20px; /* space between links */
+            padding: 1em;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+border-bottom: 1px solid #e0e0e0;
+border-radius: 8px;
+
+        }
+       
+
+
+    </style>
+
+<!--<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">-->
+</head>
+<body>
+    <nav>
+        <a href="/" class="{% if active_page == 'home' %}active{% endif %}">Home</a>
+        <a href="/about" class="{% if active_page == 'about' %}active{% endif %}">About</a>
+        <a href="/projects" class="{% if active_page == 'projects' %}active{% endif %}">Projects</a>
+		<a href="/Certifications" class="{% if active_page == 'Certifications' %}active{% endif %}">Certifications</a>
+		<a href="/Experience" class="{% if active_page == 'Experience' %}active{% endif %}">Experience</a>
+		<a href="/skills" class="{% if active_page == 'skills' %}active{% endif %}">Skills</a>
+		 <button id="theme-toggle">🌙</button>   
+    </nav>
+
+    <div style="padding: 2em;">
+        {% block content %}{% endblock %}
+    </div>
+
+   <!-- <footer style="background:#ffffff; color:black; text-align:center; padding: 1em; position: fixed; bottom: 0; width: 100%;">
+        <p>&copy; 2025 My Portfolio</p>
+    </footer>-->
+<!--<script src="{{ url_for('static', filename='js/script.js') }}"></script>-->
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">-->
+<!--<script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Set default theme
+    body.classList.add('light-mode');
+
+    toggleButton.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        body.classList.toggle('light-mode');
+
+        // Change icon based on mode
+        if (body.classList.contains('dark-mode')) {
+            toggleButton.textContent = '🌙';
+        } else {
+            toggleButton.textContent = '☀️';
+        }
+    });
+</script>-->
+<script>
+    const toggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        toggleButton.textContent = savedTheme === 'dark-mode' ? "☀️" : "🌙";
+    } else {
+        // Default to light mode
+        body.classList.add('light-mode');
+        toggleButton.textContent = "☀️";
+    }
+
+    toggleButton.addEventListener('click', () => {
+        if (body.classList.contains('dark-mode')) {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            toggleButton.textContent = "🌙";
+            localStorage.setItem('theme', 'light-mode');
+        } else {
+            body.classList.remove('light-mode');
+            body.classList.add('dark-mode');
+            toggleButton.textContent = "☀️";
+            localStorage.setItem('theme', 'dark-mode');
+        }
+    });
+</script>
+<!-- footer for timer-->
+
+<footer class="footer">
+    <span id="current-time"></span>
+</footer>
+<script>
+    function updateTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString(); // HH:MM:SS format based on user's locale
+        document.getElementById("current-time").textContent = "Current Time: " + timeString;
+    }
+
+    updateTime(); // Show immediately
+    setInterval(updateTime, 1000); // Update every second
+</script>
+
+<!-- footer for timer-->
+</body>
+</html>
